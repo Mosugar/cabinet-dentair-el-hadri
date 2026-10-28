@@ -25,5 +25,5 @@ Puis ouvrir http://localhost:3000.
 - Horaires d'ouverture (provisoires)
 - Nom, parcours et photo du docteur
 - Liste exacte des soins proposés
-- Photos du cabinet (les photos actuelles sont temporaires)
+- Plus de photos du cabinet si besoin
 - Confirmer que le 07 02 09 11 77 est sur WhatsApp

@@ -96,6 +96,10 @@ const fr = {
       message: "Message",
     },
   },
+  gallery: {
+    eyebrow: "Au cabinet",
+    alt: "Soins au Centre Dentaire El Hadri",
+  },
   faq: {
     eyebrow: "Questions fréquentes",
     title: "Vous avez une question ?",

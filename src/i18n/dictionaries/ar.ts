@@ -96,6 +96,10 @@ const ar: Dictionary = {
       message: "الرسالة",
     },
   },
+  gallery: {
+    eyebrow: "داخل العيادة",
+    alt: "العلاج في مركز الحضري لطب الأسنان",
+  },
   faq: {
     eyebrow: "الأسئلة الشائعة",
     title: "لديك سؤال؟",

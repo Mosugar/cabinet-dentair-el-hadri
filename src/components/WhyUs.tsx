@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils";
 import { BlurText } from "./BlurText";
 import { Reveal } from "./Reveal";
 
-// PHOTOS TEMPORAIRES (gardées) : à remplacer plus tard par des photos du cabinet
+// Photos réelles du cabinet
 const photos = [
-  { src: "/images/care-1.webp", className: "row-span-2" },
-  { src: "/images/care-2.webp", className: "" },
-  { src: "/images/care-4.webp", className: "" },
+  { src: "/images/clinic/room.webp", className: "row-span-2" },
+  { src: "/images/clinic/scan-1.webp", className: "" },
+  { src: "/images/clinic/scan-2.webp", className: "" },
 ];
 
 export function WhyUs({ t }: { t: Dictionary }) {
@@ -21,7 +21,7 @@ export function WhyUs({ t }: { t: Dictionary }) {
               <div key={p.src} className={cn("relative overflow-hidden rounded-[24px] bg-line", p.className)}>
                 <Image
                   src={p.src}
-                  alt=""
+                  alt={t.gallery.alt}
                   fill
                   sizes="(min-width: 1024px) 300px, 45vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
