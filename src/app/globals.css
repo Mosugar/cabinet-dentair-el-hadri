@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   CENTRE DENTAIRE EL HADRI
+   Blanc, noir, et l'or du logo en accent. Simple, aéré.
+   ========================================================================== */
+
+/* "static" : ces variables existent toujours sur :root (utilisées aussi dans le CSS ci-dessous) */
+@theme static {
+  --color-paper: #ffffff;
+  --color-ink: #0a0a0a;
+  --color-muted: #666666;
+  --color-subtle: #8f8f8f;
+  --color-line: #e6e6e6;
+  --color-surface: #f6f5f2;
+  --color-gold: #c9a14a;
+  --color-gold-light: #ecd36a;
+  --color-gold-deep: #8b5a1f;
+
+  --radius-media: 24px;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* "inline" : les polices viennent de next/font, définies sur <html> */
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-plex-arabic), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Interlettrage serré des titres (comme Wardd) */
+@utility tracking-display {
+  letter-spacing: -0.045em;
+}
+@utility tracking-heading {
+  letter-spacing: -0.03em;
+}
+
+/* Dégradé or du logo */
+@utility text-gold {
+  background: linear-gradient(100deg, #8b5a1f 0%, #c9a14a 30%, #ecd36a 55%, #c9a14a 75%, #8b5a1f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility bg-gold {
+  background: linear-gradient(100deg, #8b5a1f 0%, #c9a14a 30%, #ecd36a 55%, #c9a14a 75%, #8b5a1f 100%);
+}
+
+/* Étiquette entre crochets : [ Nos soins ] */
+@utility label {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+  &::before {
+    content: "[ ";
+    color: var(--color-gold);
+  }
+  &::after {
+    content: " ]";
+    color: var(--color-gold);
+  }
+}
+
+@utility container-x {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 6vw, 96px);
+}
+
+@utility section-y {
+  padding-block: clamp(80px, 11vw, 160px);
+}
+
+@utility btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 52px;
+  padding-inline: 28px;
+  border-radius: 999px;
+  background: var(--color-ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    transform 0.35s var(--ease-out-soft),
+    background 0.3s ease;
+  &:hover {
+    transform: translateY(-2px);
+    background: #262626;
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 52px;
+  padding-inline: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+  &:hover {
+    border-color: var(--color-ink);
+    background: var(--color-surface);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  color: var(--color-ink);
+  background: var(--color-gold-light);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Arabe : police arabe, et pas d'interlettrage négatif (ça casse les liaisons) */
+html[lang="ar"] body {
+  font-family: var(--font-plex-arabic), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0;
+}
+html[lang="ar"] [class*="tracking-"] {
+  letter-spacing: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
